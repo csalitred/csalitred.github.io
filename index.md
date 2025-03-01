@@ -1,3 +1,13 @@
+---
+layout: default
+title: Cristian Salitre
+---
+
+# Welcome to My Site
+
+Stay tuned!
+
+
 # Electrical & Computer Engineer
 
 **Languages:** Python, Embedded C/C++, MATLAB, Ruby/RoR, VHDL  
