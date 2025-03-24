@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cristian Salitre | Professional Portfolio</title>
+    <title>Cristian Salitre | Embedded Systems & IoT Engineer</title>
+    <meta name="description" content="Computer & Electrical Engineer specializing in embedded systems, IoT solutions, and RF communications. Currently at Oxit with upcoming experience at Honeywell.">
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Base styles - can be moved to styles.css later */
+        /* Base styles */
         :root {
             --primary-color: #0a66c2;
             --secondary-color: #1e2a3a;
@@ -94,21 +95,35 @@
         
         /* Hero section */
         .hero {
-            padding: 150px 0 100px;
+            padding: 160px 0 120px;
             background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
             color: white;
             text-align: center;
         }
         
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
         
         .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 15px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem !important;
+            opacity: 0.9;
+            margin-bottom: 30px !important;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         
         .btn {
@@ -126,12 +141,17 @@
             background-color: #2a9399;
         }
         
-        /* About section */
-        .about {
-            padding: 80px 0;
-            background-color: white;
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: white;
         }
         
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+        }
+        
+        /* Section common styles */
         .section-title {
             text-align: center;
             margin-bottom: 60px;
@@ -149,73 +169,831 @@
             color: var(--text-color);
         }
         
-        /* Services section */
-        .services {
-            padding: 80px 0;
+        /* About section */
+        .about {
+            padding: 100px 0 80px;
+            background-color: white;
+        }
+        
+        .about-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        /* Profile Image Styles */
+        .about-image {
+            flex: 0 0 250px;
+            position: relative;
+        }
+        
+        .profile-placeholder {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 100px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .current-position {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+        }
+        
+        .position-badge {
+            display: inline-block;
+            background-color: white;
+            color: var(--dark-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        .position-badge i {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+        
+        /* About Content Styles */
+        .about-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .about-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 15px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .about-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .qualification-list {
+            list-style: none;
+            padding-left: 30px;
+        }
+        
+        .qualification-list li {
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .qualification-list li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: -15px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .personal-motto {
+            font-style: italic;
+            padding: 15px 20px;
+            border-left: 4px solid var(--accent-color);
+            background-color: #f9f9f9;
+            margin: 20px 0;
+            color: #555;
+            font-size: 1.05rem;
+        }
+        
+        /* Skills Styles */
+        .skills-section h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .skill {
+            margin-bottom: 10px;
+        }
+        
+        .skill-name {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+        }
+        
+        /* Expertise Section Styles */
+        .expertise {
+            padding: 100px 0 80px;
             background-color: var(--light-color);
         }
         
-        .services-grid {
+        .expertise-areas {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-bottom: 60px;
         }
         
-        .service-card {
+        .expertise-card {
             background-color: white;
             border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            padding: 35px 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
-        .service-card:hover {
+        .expertise-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
-        .service-icon {
-            font-size: 2.5rem;
+        .expertise-icon {
+            font-size: 2.8rem;
             color: var(--primary-color);
-            margin-bottom: 15px;
+            margin-bottom: 25px;
+            text-align: center;
         }
         
-        .service-card h3 {
-            margin-bottom: 15px;
+        .expertise-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
             color: var(--dark-color);
+            text-align: center;
+        }
+        
+        .expertise-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        
+        .expertise-list li {
+            position: relative;
+            padding: 8px 0 8px 25px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .expertise-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .expertise-list li:before {
+            content: "→";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+        
+        .expertise-footer {
+            margin-top: auto;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tech-tags span {
+            background-color: rgba(10, 102, 194, 0.1);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        /* Availability Banner */
+        .availability-banner {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            border-radius: 12px;
+            padding: 5px;
+            margin-top: 80px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .availability-content {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .availability-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            flex: 0 0 50px;
+        }
+        
+        .availability-text {
+            flex: 1;
+            color: white;
+        }
+        
+        .availability-text h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .availability-text p {
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        .availability-banner .btn {
+            flex: 0 0 auto;
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        .availability-banner .btn:hover {
+            background-color: var(--accent-color);
+            color: white;
         }
         
         /* Projects section */
         .projects {
-            padding: 80px 0;
+            padding: 100px 0 80px;
             background-color: white;
+        }
+        
+        /* Projects Filter */
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            background: none;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            margin: 0 5px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .project-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .project-card.featured {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .project-image {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-tags {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .project-tags span {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .project-tags span:first-child {
+            background: var(--primary-color);
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .project-description {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .detail h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .detail p {
+            font-size: 0.85rem;
+            color: var(--text-color);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .tech-stack span {
+            background-color: var(--light-color);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+        }
+        
+        .project-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .project-link {
+            color: var(--primary-color);
+            margin-left: 15px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .project-link i {
+            margin-right: 5px;
+        }
+        
+        /* Section Subtitle */
+        .section-subtitle {
+            text-align: center;
+            margin: 40px 0 30px;
+        }
+        
+        .section-subtitle h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .section-subtitle p {
+            color: var(--text-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Projects List */
+        .projects-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        
+        .project-item {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: var(--light-color);
+            transition: transform 0.3s;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-brief h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+        
+        .project-brief p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .course {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .tech-tags span {
+            background: rgba(10, 102, 194, 0.1);
+            color: var(--primary-color);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+            margin-top: 5px;
+        }
+        
+        /* Roadmap */
+        .roadmap {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .roadmap:before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e1e4e8;
+        }
+        
+        .roadmap-item {
+            display: flex;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .roadmap-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+        
+        .roadmap-item.current .roadmap-icon {
+            color: var(--accent-color);
+            background-color: rgba(53, 184, 190, 0.1);
+        }
+        
+        .roadmap-item.planned .roadmap-icon {
+            color: var(--primary-color);
+            background-color: rgba(10, 102, 194, 0.1);
+        }
+        
+        .roadmap-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-left: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            flex: 1;
+        }
+        
+        .roadmap-content h4 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .roadmap-content p {
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+        
+        .progress-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            flex: 1;
+            margin-right: 10px;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+        }
+        
+        .progress-text {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .timeline {
+            display: inline-block;
+            background-color: #f1f8ff;
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+        
+        /* Collaboration Section */
+        .collaboration-section {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--light-color);
+            border-radius: 10px;
+        }
+        
+        .collaboration-section h3 {
+            color: var(--dark-color);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .collaboration-section > p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--text-color);
+        }
+        
+        .interest-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .interest-area {
+            background-color: white;
+            padding: 25px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .interest-area i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .interest-area h4 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .interest-area p {
+            color: var(--text-color);
+            font-size: 0.9rem;
         }
         
         /* Contact section */
         .contact {
-            padding: 80px 0;
+            padding: 100px 0 80px;
             background-color: var(--secondary-color);
             color: white;
         }
         
-        .contact-grid {
+        .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 1.5fr;
             gap: 30px;
-            margin-top: 40px;
+            margin-bottom: 60px;
         }
         
-        .contact-info {
-            background-color: rgba(255, 255, 255, 0.1);
+        /* Contact Info Card */
+        .contact-info-card {
+            background-color: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
-            padding: 30px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
         }
         
-        .contact-form {
+        .contact-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 3rem;
+        }
+        
+        .contact-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .contact-title {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            width: 30px;
+            margin-top: 3px;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text p {
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .contact-social {
+            margin-top: auto;
+        }
+        
+        .contact-social h4 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Contact Form Card */
+        .contact-form-card {
             background-color: white;
             border-radius: 10px;
-            padding: 30px;
+            padding: 40px;
             color: var(--dark-color);
+        }
+        
+        .contact-form-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .form-intro {
+            color: var(--text-color);
+            margin-bottom: 25px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
         
         .form-group {
@@ -224,21 +1002,79 @@
         
         .form-group label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: 500;
+            color: var(--dark-color);
         }
         
         .form-input {
             width: 100%;
-            padding: 12px;
+            padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
         }
         
         textarea.form-input {
             min-height: 150px;
             resize: vertical;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        /* Collaboration Options */
+        .collaboration-types {
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .collaboration-types h3 {
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .collab-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .collab-option {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px 25px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .collab-option:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .collab-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .collab-option h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .collab-option p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
         
         /* Footer */
@@ -265,6 +1101,30 @@
         }
         
         /* Responsive styles */
+        @media (max-width: 992px) {
+            .project-card.featured {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .availability-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -292,6 +1152,31 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-image {
+                margin-bottom: 40px;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .interest-areas {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -300,10 +1185,10 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">Cristian Salitre</a>
+                <a href="#" class="logo">Portfolio</a>
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -318,298 +1203,178 @@
     <section class="hero" id="home">
         <div class="container">
             <h1>Hello, I'm Cristian Salitre</h1>
-            <p>Embedded Firmware and Software Engineer</p>
-            <a href="#contact" class="btn">Get in Touch</a>
+            <p>Embedded Systems & IoT Engineer</p>
+            <p class="hero-subtitle">Building innovative solutions at the intersection of hardware and software</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Discuss Opportunities</a>
+            </div>
         </div>
     </section>
 
-<!-- About Section -->
-<section class="about" id="about">
-    <div class="container">
-        <div class="section-title">
-            <h2>About Me</h2>
-            <p>Embedded systems specialist with a focus on IoT and wireless communication</p>
-        </div>
-        
-        <div class="about-container">
-            <!-- Profile Image Column -->
-            <div class="about-image">
-                <!-- If you have a profile photo, uncomment and use the line below -->
-                <!-- <img src="path-to-your-image.jpg" alt="Cristian Salitre"> -->
-                <div class="profile-placeholder">
-                    <i class="fas fa-user-circle"></i>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Embedded systems engineer with a focus on IoT and wireless communication</p>
+            </div>
+            
+            <div class="about-container">
+                <!-- Profile Image Column -->
+                <div class="about-image">
+                    <!-- If you have a profile photo, uncomment and use the line below -->
+                    <!-- <img src="path-to-your-image.jpg" alt="Cristian Salitre"> -->
+                    <div class="profile-placeholder">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="current-position">
+                        <span class="position-badge">
+                            <i class="fas fa-briefcase"></i> Oxit
+                        </span>
+                    </div>
                 </div>
-                <div class="current-position">
-                    <span class="position-badge">
-                        <i class="fas fa-briefcase"></i> Oxit
-                    </span>
+                
+                <!-- Bio Content Column -->
+                <div class="about-content">
+                    <div class="about-card">
+                        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                        <ul class="qualification-list">
+                            <li>Bachelor of Science in Computer Engineering</li>
+                            <li>Master of Science in Electrical Engineering (In Progress)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="about-text">
+                        <p>Currently working as an Embedded Firmware Engineer Intern at Oxit, focusing on IoT devices, RF communication, and building wireless systems. Upcoming internship at Honeywell as a Firmware Engineer for embedded devices that are used in production.</p>
+                        
+                        <p>My passion for technology has driven my career in embedded systems, where I work at the intersection of hardware and software. I'm dedicated to advancing technological efficiency and performance, creating embedded solutions that are reliable, power-efficient, and optimized for real-world applications.</p>
+                        
+                        <p>Through firmware development and low-level system design, I aim to help build the next generation of devices that will improve our technological infrastructure and everyday lives.</p>
+                        
+                        <blockquote class="personal-motto">
+                            "Always take pride in my work and treat every project as my own."  - CristIan Salitre
+                        </blockquote>
+                    </div>
+                    
+                    <div class="skills-section">
+                        <h3><i class="fas fa-tools"></i> Core Skills</h3>
+                        <div class="skills-container">
+                            <div class="skill">
+                                <span class="skill-name">Firmware Development</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill-name">Embedded C/C++</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill-name">IoT Systems</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill-name">RF Communication</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section (replaces Services) -->
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Expertise</h2>
+                <p>Specialized skills in embedded systems, IoT, and wireless technologies</p>
+            </div>
+            
+            <div class="expertise-areas">
+                <!-- Area 1: Embedded Systems -->
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Embedded Systems</h3>
+                    <ul class="expertise-list">
+                        <li>Firmware development for microcontrollers</li>
+                        <li>Low-level driver implementation</li>
+                        <li>Real-time operating systems (RTOS)</li>
+                        <li>Power optimization techniques</li>
+                    </ul>
+                    <div class="expertise-footer">
+                        <div class="tech-tags">
+                            <span>C/C++</span>
+                            <span>STM32</span>
+                            <span>TI-MSP430</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Area 2: IoT Development -->
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>IoT Development</h3>
+                    <ul class="expertise-list">
+                        <li>Sensor integration and data acquisition</li>
+                        <li>Low-power wireless networking</li>
+                        <li>Cloud connectivity solutions</li>
+                        <li>IoT protocol implementation</li>
+                    </ul>
+                    <div class="expertise-footer">
+                        <div class="tech-tags">
+                            <span>Raspberry Pi</span>
+                            <span>ESP32</span>
+                            <span>BLE</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Area 3: RF & Wireless -->
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                    <h3>RF & Wireless</h3>
+                    <ul class="expertise-list">
+                        <li>Wireless protocol implementation</li>
+                        <li>RF signal processing</li>
+                        <li>Antenna design fundamentals</li>
+                        <li>Radio frequency communication</li>
+                    </ul>
+                    <div class="expertise-footer">
+                        <div class="tech-tags">
+                            <span>WiFi</span>
+                            <span>Bluetooth</span>
+                            <span>LoRa</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <!-- Bio Content Column -->
-            <div class="about-content">
-                <div class="about-card">
-                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-                    <ul class="qualification-list">
-                        <li>Bachelor of Science in Computer Engineering</li>
-                        <li>Master of Science in Electrical Engineering (In Progress)</li>
-                    </ul>
-                </div>
-                
-                <div class="about-text">
-                    <p>Currently working as an Embedded Firmware Engineer Intern at Oxit, focusing on IoT devices, RF communication, and building wireless systems.</p>
-                    
-                    <p>My passion for technology has driven my career in embedded systems, where I work at the intersection of hardware and software. I'm dedicated to advancing technological efficiency and performance, creating embedded solutions that are reliable, power-efficient, and optimized for real-world applications.</p>
-                    
-                    <p>Through firmware development and low-level system design, I aim to help build the next generation of devices that will improve our technological infrastructure and everyday lives.</p>
-                    
-                    <blockquote class="personal-motto">
-                        "Always take pride in my work and treat every project as my own."
-                    </blockquote>
-                </div>
-                
-                <div class="skills-section">
-                    <h3><i class="fas fa-tools"></i> Core Skills</h3>
-                    <div class="skills-container">
-                        <div class="skill">
-                            <span class="skill-name">Firmware Development</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Embedded C/C++</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">IoT Systems</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">RF Communication</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
+            <!-- Availability Banner -->
+            <div class="availability-banner">
+                <div class="availability-content">
+                    <div class="availability-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<style>
-    /* Enhanced About Section Styles */
-    .about {
-        padding: 100px 0 80px;
-        background-color: white;
-    }
-    
-    .about-container {
-        display: flex;
-        gap: 40px;
-        margin-top: 30px;
-    }
-    
-    /* Profile Image Styles */
-    .about-image {
-        flex: 0 0 250px;
-        position: relative;
-    }
-    
-    .profile-placeholder {
-        width: 250px;
-        height: 250px;
-        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 100px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .about-image img {
-        width: 100%;
-        border-radius: 10px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .current-position {
-        position: absolute;
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-    }
-    
-    .position-badge {
-        display: inline-block;
-        background-color: white;
-        color: var(--dark-color);
-        padding: 8px 15px;
-        border-radius: 20px;
-        font-weight: 500;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        font-size: 0.9rem;
-    }
-    
-    .position-badge i {
-        color: var(--primary-color);
-        margin-right: 5px;
-    }
-    
-    /* Content Styles */
-    .about-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-    }
-    
-    .about-card {
-        background-color: #f9f9f9;
-        border-radius: 10px;
-        padding: 15px 20px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-    
-    .about-card h3 {
-        color: var(--primary-color);
-        margin-bottom: 10px;
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    
-    .qualification-list {
-        list-style: none;
-        padding-left: 30px;
-    }
-    
-    .qualification-list li {
-        position: relative;
-        padding: 5px 0;
-    }
-    
-    .qualification-list li:before {
-        content: "•";
-        color: var(--primary-color);
-        position: absolute;
-        left: -15px;
-    }
-    
-    .about-text p {
-        margin-bottom: 15px;
-        line-height: 1.7;
-    }
-    
-    .personal-motto {
-        font-style: italic;
-        padding: 15px 20px;
-        border-left: 4px solid var(--accent-color);
-        background-color: #f9f9f9;
-        margin: 20px 0;
-        color: #555;
-        font-size: 1.05rem;
-    }
-    
-    /* Skills Styles */
-    .skills-section h3 {
-        margin-bottom: 15px;
-        color: var(--dark-color);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    
-    .skills-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    
-    .skill {
-        margin-bottom: 10px;
-    }
-    
-    .skill-name {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: 500;
-        color: var(--dark-color);
-    }
-    
-    .skill-bar {
-        height: 8px;
-        background-color: #e9ecef;
-        border-radius: 4px;
-        overflow: hidden;
-    }
-    
-    .skill-progress {
-        height: 100%;
-        background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 900px) {
-        .skills-container {
-            grid-template-columns: 1fr;
-        }
-    }
-    
-    @media (max-width: 768px) {
-        .about-container {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .about-image {
-            margin-bottom: 40px;
-        }
-    }
-</style>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>My Services</h2>
-                <p>Here are the professional services I offer</p>
-            </div>
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
+                    <div class="availability-text">
+                        <h3>Looking for specialized embedded systems expertise?</h3>
+                        <p>I'm available for select contract projects and technical collaborations in embedded systems, IoT, and wireless communications.</p>
                     </div>
-                    <h3>IoT Integration</h3>
-                    <p></p>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <h3>Software-as-a-Service</h3>
-                    <p></p>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Consulting</h3>
-                    <p></p>
+                    <a href="#contact" class="btn">Let's Connect</a>
                 </div>
             </div>
         </div>
@@ -620,10 +1385,146 @@
         <div class="container">
             <div class="section-title">
                 <h2>My Projects</h2>
-                <p>Check out some of my recent work</p>
+                <p>Showcasing my work in embedded systems, IoT, and wireless communications</p>
             </div>
-            <div class="projects-content">
-                <p>Projects coming soon...</p>
+            
+            <!-- Projects Filter -->
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
+                <button class="filter-btn" data-filter="iot">IoT</button>
+                <button class="filter-btn" data-filter="rf">RF & Wireless</button>
+            </div>
+            
+            <!-- Featured Projects -->
+            <div class="projects-grid">
+                <!-- Project 1: Featured Project -->
+                <div class="project-card featured" data-category="embedded iot">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/800x400" alt="IoT Environmental Monitor">
+                        <div class="project-tags">
+                            <span>Featured</span>
+                            <span>Embedded</span>
+                            <span>IoT</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Wireless Shipping Container Lock</h3>
+                        <p class="project-description">Partnered with DP Containers to design and implement a low-power breach detection and monitoring system using ESP32-S3 microcontroller with multiple sensor integrations.</p>
+                        <div class="project-details">
+                            <div class="detail">
+                                <h4>Challenge</h4>
+                                <p>Design and built a low-power internal wirless lock for a shipping container that communicates with a smartphone application, for breach detection.</p>
+                            </div>
+                            <div class="detail">
+                                <h4>Solution</h4>
+                                <p>Utilized deep sleep modes and interrupt-based wake-up mechanisms to optimize power consumption.</p>
+                            </div>
+                            <div class="detail">
+                                <h4>Technologies</h4>
+                                <p>ESP32, C/C++, Accelerometer, Photodiode, User Buttons, LiPo Battery Management</p>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card" data-category="rf wireless">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x300" alt="RF Signal Analyzer">
+                        <div class="project-tags">
+                            <span>RF</span>
+                            <span>Signal Processing</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>950 MHz QAM Transmitter</h3>
+                        <p class="project-description">Designed and built a 950 MHz Radio System from scratch.</p>
+                        <div class="tech-stack">
+                            <span>AWR Microwave Office</span>
+                            <span>Electromagnetic Thoery</span>
+                            <span>PCB Soldering</span>
+                            <span>Digital Signal Processing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">View Details</a>
+                            <a href="https://github.com/csalitred" class="project-link"><i class="fab fa-github"></i> Repository</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <!-- Current & Future Projects -->
+            <div class="section-subtitle">
+                <h3>Project Roadmap</h3>
+                <p>What I'm currently working on and planning for the future</p>
+            </div>
+            
+            <div class="roadmap">
+                <div class="roadmap-item current">
+                    <div class="roadmap-icon">
+                        <i class="fas fa-cog fa-spin"></i>
+                    </div>
+                    <div class="roadmap-content">
+                        <h4>Low-Power LoRa Sensor Network</h4>
+                        <p>Building an ultra-low power sensor network using LoRa technology for long-range communication in agricultural monitoring.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 65%;"></div>
+                            </div>
+                            <span class="progress-text">65% Complete</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item planned">
+                    <div class="roadmap-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="roadmap-content">
+                        <h4>IoT Security System with .....</h4>
+                        <p></p>
+                        <span class="timeline">Starting Q2 2025</span>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item planned">
+                    <div class="roadmap-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="roadmap-content">
+                        <h4>AI integration for .....</h4>
+                        <p>Implementing start-of-the-art machine learning models for ....</p>
+                        <span class="timeline">Planned for summer 2025</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Collaboration Interest -->
+            <div class="collaboration-section">
+                <h3>Interested in Collaboration?</h3>
+                <p>I'm actively seeking opportunities to collaborate on projects in these areas:</p>
+                <div class="interest-areas">
+                    <div class="interest-area">
+                        <i class="fas fa-broadcast-tower"></i>
+                        <h4>Wireless Communication Systems</h4>
+                        <p>RF design, signal processing, and wireless protocol implementation.</p>
+                    </div>
+                    <div class="interest-area">
+                        <i class="fas fa-network-wired"></i>
+                        <h4>IoT Ecosystems</h4>
+                        <p>Smart device development, IoT protocols, and cloud connectivity solutions.</p>
+                    </div>
+                    <div class="interest-area">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Low-Power Embedded Systems</h4>
+                        <p>Battery-operated devices, energy harvesting, and power optimization techniques.</p>
+                    </div>
+                </div>
+                <a href="#contact" class="btn">Discuss a Project</a>
             </div>
         </div>
     </section>
@@ -632,37 +1533,119 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Contact Me</h2>
-                <p>Get in touch for collaborations or inquiries</p>
+                <h2>Get In Touch</h2>
+                <p>Interested in working together? Let's discuss your project</p>
             </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p><i class="fas fa-envelope"></i> salitrecristian@gmail.com</p>
-                    <!--<p><i class="fas fa-phone"></i> </p> --->
-                    <p><i class="fas fa-map-marker-alt"></i> North Carolina, USA</p>
-                    <div class="social-links">
-                        <a href="https://github.com/csalitred"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/cristian-salitre"><i class="fab fa-linkedin"></i></a>
+            
+            <div class="contact-container">
+                <div class="contact-info-card">
+                    <div class="contact-header">
+                        <div class="contact-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Cristian Salitre</h3>
+                        <p class="contact-title">Embedded Systems & IoT Engineer</p>
+                    </div>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-text">
+                                <p>salitrecristian@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-text">
+                                <p>North Carolina, USA</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div class="contact-text">
+                                <p>Available for contract opportunities and collaborations</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <h4>Connect With Me</h4>
+                        <div class="social-icons">
+                            <a href="https://github.com/csalitred" target="_blank" class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/cristian-salitre" target="_blank" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="contact-form">
+                
+                <div class="contact-form-card">
                     <h3>Send a Message</h3>
+                    <p class="form-intro">Have a project in mind or want to discuss potential opportunities? Fill out the form below.</p>
+                    
                     <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" class="form-input" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-input" required>
+                            </div>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-input" required>
+                            <label for="subject">Subject</label>
+                            <select id="subject" class="form-input">
+                                <option value="project">Project Inquiry</option>
+                                <option value="contract">Contract Opportunity</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
+                        
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" class="form-input" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        
+                        <button type="submit" class="btn btn-submit">Send Message</button>
                     </form>
+                </div>
+            </div>
+            
+            <div class="collaboration-types">
+                <h3>How We Can Work Together</h3>
+                <div class="collab-options">
+                    <div class="collab-option">
+                        <div class="collab-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h4>Contract Projects</h4>
+                        <p>Fixed-scope embedded systems or IoT development projects with defined deliverables.</p>
+                    </div>
+                    
+                    <div class="collab-option">
+                        <div class="collab-icon">
+                            <i class="fas fa-business-time"></i>
+                        </div>
+                        <h4>Consulting</h4>
+                        <p>Technical advice and expertise for your embedded systems or wireless communications challenges.</p>
+                    </div>
+                    
+                    <div class="collab-option">
+                        <div class="collab-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Collaboration</h4>
+                        <p>Partnerships on innovative projects in IoT, embedded systems, or wireless technologies.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -673,9 +1656,8 @@
         <div class="container">
             <p>&copy; 2025 Cristian Salitre. All Rights Reserved.</p>
             <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/csalitred"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/cristian-salitre"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
     </footer>
@@ -695,4 +1677,68 @@
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Projects filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        const projectItems = document.querySelectorAll('.project-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Filter project cards
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Filter project items
+                projectItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category').includes(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Form submission event
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would add code to handle the form submission
+                // For example, sending data to a server or email service
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
